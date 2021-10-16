@@ -1,0 +1,71 @@
+// Fonts
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+	font-family: $font_name;
+	font-display: swap;
+	src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+	font-weight: #{$weight};
+	font-style: #{$style};
+	}
+}
+
+// px to rem
+@function rem($pixels, $context: $mainFontSize) {
+	@if (unitless($pixels)) {
+	  $pixels: $pixels * 1px;
+	}
+	@if (unitless($context)) {
+	  $context: $context * 1px;
+	}
+	@return $pixels / $context * 1rem;
+}
+
+@mixin placeholder {
+	::-webkit-input-placeholder {
+		@content;
+	}
+	:-moz-placeholder {
+		@content;
+	}
+	::-moz-placeholder {
+		@content;
+	}
+	:-ms-input-placeholder {
+		@content;
+	}
+}
+
+@mixin SF-medium{
+	font-family: 'SFProDisplay';
+	font-weight: 500;
+}
+
+@mixin SF-bold{
+	font-family: 'SFProDisplay';
+	font-weight: 700;
+}
+
+@mixin SF-regular{
+	font-family: 'SFProDisplay';
+	font-weight: 400;
+}
+
+@mixin SF-semi_bold{
+	font-family: 'SFProDisplay';
+	font-weight: 600;
+}
+
+@mixin PN-regular{
+	font-family: 'ProximaNova';
+	font-weight: 400;
+}
+
+@mixin barlow-regular{
+	font-family: 'Barlow';
+	font-weight: 400;
+}
+
+@mixin barlow-bold{
+	font-family: 'Barlow';
+	font-weight: 700;
+}
